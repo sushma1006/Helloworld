@@ -3,6 +3,9 @@ sushma@sushma-Vostro-14-5410:~$ cd git
 bash: cd: git: No such file or directory
 sushma@sushma-Vostro-14-5410:~$ cd Desktop
 sushma@sushma-Vostro-14-5410:~/Desktop$ cd git
+
+
+sushma@sushma-Vostro-14-5410:~/Desktop$ cd git
 sushma@sushma-Vostro-14-5410:~/Desktop/git$ git mv git from gits
 fatal: destination 'gits' is not a directory
 sushma@sushma-Vostro-14-5410:~/Desktop/git$ git mv git gits
