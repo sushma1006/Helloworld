@@ -1,0 +1,751 @@
+sushma@sushma-Vostro-14-5410:~$ man mv
+sushma@sushma-Vostro-14-5410:~$ cd git
+bash: cd: git: No such file or directory
+sushma@sushma-Vostro-14-5410:~$ cd Desktop
+sushma@sushma-Vostro-14-5410:~/Desktop$ cd git
+sushma@sushma-Vostro-14-5410:~/Desktop/git$ git mv git from gits
+fatal: destination 'gits' is not a directory
+sushma@sushma-Vostro-14-5410:~/Desktop/git$ git mv git gits
+fatal: bad source, source=git, destination=gits
+sushma@sushma-Vostro-14-5410:~/Desktop/git$ mv git gitsampletest
+mv: cannot stat 'git': No such file or directory
+sushma@sushma-Vostro-14-5410:~/Desktop/git$ cd ..
+sushma@sushma-Vostro-14-5410:~/Desktop$ mv git gitsampletest
+sushma@sushma-Vostro-14-5410:~/Desktop$ cd gitsampletest
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .gitignore
+	new file:   helo.txt
+	deleted:    textfile
+	new file:   textfile.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    .gitignore
+
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git add .
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git mv helo helofile
+fatal: bad source, source=helo, destination=helofile
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   helo.txt
+	deleted:    textfile
+	new file:   textfile.txt
+
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git mv helo helofile
+fatal: bad source, source=helo, destination=helofile
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git commit -m "1 file deleted"
+[master 68ed1a5] 1 file deleted
+ 3 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 helo.txt
+ delete mode 100644 textfile
+ create mode 100644 textfile.txt
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git mv helo helofile
+fatal: bad source, source=helo, destination=helofile
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git mv helo.txt helofile.txt
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	renamed:    helo.txt -> helofile.txt
+
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+diff --git a/helo.txt b/helo.txt
+new file mode 100644
+index 0000000..a2442ab
+--- /dev/null
++++ b/helo.txt
+@@ -0,0 +1 @@
++sudo nano .gitignore
+diff --git a/textfile b/textfile
+deleted file mode 100644
+index fc4d884..0000000
+--- a/textfile
++++ /dev/null
+@@ -1 +0,0 @@
+-haiiii
+diff --git a/textfile.txt b/textfile.txt
+new file mode 100644
+index 0000000..3b1da15
+--- /dev/null
++++ b/textfile.txt
+@@ -0,0 +1 @@
++haiiiidsdss
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+diff --git a/textfile b/textfile
+index 516ce1b..fc4d884 100644
+--- a/textfile
++++ b/textfile
+@@ -1 +1 @@
+-haii
++haiiii
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+
+diff --git a/textfile b/textfile
+new file mode 100644
+index 0000000..516ce1b
+--- /dev/null
++++ b/textfile
+@@ -0,0 +1 @@
++haii
+diff --git a/textfile.js b/textfile.js
+new file mode 100644
+index 0000000..516ce1b
+--- /dev/null
++++ b/textfile.js
+@@ -0,0 +1 @@
++haii
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+diff --git a/helo.txt b/helo.txt
+new file mode 100644
+index 0000000..a2442ab
+--- /dev/null
++++ b/helo.txt
+@@ -0,0 +1 @@
++sudo nano .gitignore
+diff --git a/textfile b/textfile
+deleted file mode 100644
+index fc4d884..0000000
+--- a/textfile
++++ /dev/null
+@@ -1 +0,0 @@
+-haiiii
+diff --git a/textfile.txt b/textfile.txt
+new file mode 100644
+index 0000000..3b1da15
+--- /dev/null
++++ b/textfile.txt
+@@ -0,0 +1 @@
++haiiiidsdss
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1 -3
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+diff --git a/helo.txt b/helo.txt
+new file mode 100644
+index 0000000..a2442ab
+--- /dev/null
++++ b/helo.txt
+@@ -0,0 +1 @@
++sudo nano .gitignore
+diff --git a/textfile b/textfile
+deleted file mode 100644
+index fc4d884..0000000
+--- a/textfile
++++ /dev/null
+@@ -1 +0,0 @@
+-haiiii
+diff --git a/textfile.txt b/textfile.txt
+new file mode 100644
+index 0000000..3b1da15
+--- /dev/null
++++ b/textfile.txt
+@@ -0,0 +1 @@
++haiiiidsdss
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+diff --git a/textfile b/textfile
+index 516ce1b..fc4d884 100644
+--- a/textfile
++++ b/textfile
+@@ -1 +1 @@
+-haii
++haiiii
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+
+diff --git a/textfile b/textfile
+new file mode 100644
+index 0000000..516ce1b
+--- /dev/null
++++ b/textfile
+@@ -0,0 +1 @@
++haii
+diff --git a/textfile.js b/textfile.js
+new file mode 100644
+index 0000000..516ce1b
+--- /dev/null
++++ b/textfile.js
+@@ -0,0 +1 @@
++haii
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+diff --git a/helo.txt b/helo.txt
+new file mode 100644
+index 0000000..a2442ab
+--- /dev/null
++++ b/helo.txt
+@@ -0,0 +1 @@
++sudo nano .gitignore
+diff --git a/textfile b/textfile
+deleted file mode 100644
+index fc4d884..0000000
+--- a/textfile
++++ /dev/null
+@@ -1 +0,0 @@
+-haiiii
+diff --git a/textfile.txt b/textfile.txt
+new file mode 100644
+index 0000000..3b1da15
+--- /dev/null
++++ b/textfile.txt
+@@ -0,0 +1 @@
++haiiiidsdss
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git --help
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p help
+fatal: ambiguous argument 'help': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p --help
+usage: git log [<options>] [<revision-range>] [[--] <path>...]
+   or: git show [<options>] <object>...
+
+    -q, --quiet           suppress diff output
+    --source              show source
+    --use-mailmap         use mail map file
+    --mailmap             alias of --use-mailmap
+    --decorate-refs <pattern>
+                          only decorate refs that match <pattern>
+    --decorate-refs-exclude <pattern>
+                          do not decorate refs that match <pattern>
+    --decorate[=...]      decorate options
+    -L <range:file>       trace the evolution of line range <start>,<end> or function :<funcname> in <file>
+
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --stat
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+ helo.txt     | 1 +
+ textfile     | 1 -
+ textfile.txt | 1 +
+ 3 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+ textfile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+
+ textfile    | 1 +
+ textfile.js | 1 +
+ 2 files changed, 2 insertions(+)
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty=online
+fatal: invalid --pretty format: online
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty online
+fatal: ambiguous argument 'online': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty -- online
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty=oneline
+68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master) 1 file deleted
+6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81 hai
+60609ab33d3888e0f162ac1931937a18fa7e7cc7 initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log oneline
+fatal: ambiguous argument 'oneline': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty=short
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+
+    1 file deleted
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+
+    hai
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+
+    initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty=full
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Commit: sushma1006 <sushma@thelaunchclub.in>
+
+    1 file deleted
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Commit: sushma1006 <sushma@thelaunchclub.in>
+
+    hai
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Commit: sushma1006 <sushma@thelaunchclub.in>
+
+    initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty=fuller
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author:     sushma1006 <sushma@thelaunchclub.in>
+AuthorDate: Mon Jan 9 17:00:47 2023 +0530
+Commit:     sushma1006 <sushma@thelaunchclub.in>
+CommitDate: Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author:     sushma1006 <sushma@thelaunchclub.in>
+AuthorDate: Wed Jan 4 18:12:15 2023 +0530
+Commit:     sushma1006 <sushma@thelaunchclub.in>
+CommitDate: Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author:     sushma1006 <sushma@thelaunchclub.in>
+AuthorDate: Wed Jan 4 18:04:34 2023 +0530
+Commit:     sushma1006 <sushma@thelaunchclub.in>
+CommitDate: Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log oneline
+fatal: ambiguous argument 'oneline': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --oneline
+68ed1a5 (HEAD -> master) 1 file deleted
+6b9587f hai
+60609ab initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%h - %an, %ar : %s"
+68ed1a5 - sushma1006, 23 minutes ago : 1 file deleted
+6b9587f - sushma1006, 5 days ago : hai
+60609ab - sushma1006, 5 days ago : initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty=format:"%h - %an, %ar : %s"
+68ed1a5 - sushma1006, 24 minutes ago : 1 file deleted
+6b9587f - sushma1006, 5 days ago : hai
+60609ab - sushma1006, 5 days ago : initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%an,%ae : %h"
+sushma1006,sushma@thelaunchclub.in : 68ed1a5
+sushma1006,sushma@thelaunchclub.in : 6b9587f
+sushma1006,sushma@thelaunchclub.in : 60609ab
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%H"
+68ed1a537e1a4fd6ee5f37959963ca01e605b976
+6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+60609ab33d3888e0f162ac1931937a18fa7e7cc7
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%h"
+68ed1a5
+6b9587f
+60609ab
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%T"
+bcf107f1cec970b46dc779e7615554ccd8a2369b
+8ddf51acf40d888aed36ee92f27e173371b72816
+8f395e7963c158015cc2a9f2d21944e7144d367a
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%t"
+bcf107f
+8ddf51a
+8f395e7
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty=format"%p:%P@an;%ae,%ad,%ar,%cn,%ce,%cd,%cr,%s"
+format6b9587f:6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81@an;sushma@thelaunchclub.in,Mon Jan 9 17:00:47 2023 +0530,28 minutes ago,sushma1006,sushma@thelaunchclub.in,Mon Jan 9 17:00:47 2023 +0530,28 minutes ago,1 file deleted
+format60609ab:60609ab33d3888e0f162ac1931937a18fa7e7cc7@an;sushma@thelaunchclub.in,Wed Jan 4 18:12:15 2023 +0530,5 days ago,sushma1006,sushma@thelaunchclub.in,Wed Jan 4 18:12:15 2023 +0530,5 days ago,hai
+format:@an;sushma@thelaunchclub.in,Wed Jan 4 18:04:34 2023 +0530,5 days ago,sushma1006,sushma@thelaunchclub.in,Wed Jan 4 18:04:34 2023 +0530,5 days ago,initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%t"
+bcf107f
+8ddf51a
+8f395e7
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%p"
+6b9587f
+60609ab
+
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%P"
+6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+60609ab33d3888e0f162ac1931937a18fa7e7cc7
+
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%an"
+sushma1006
+sushma1006
+sushma1006
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%ae"
+sushma@thelaunchclub.in
+sushma@thelaunchclub.in
+sushma@thelaunchclub.in
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%ad"
+Mon Jan 9 17:00:47 2023 +0530
+Wed Jan 4 18:12:15 2023 +0530
+Wed Jan 4 18:04:34 2023 +0530
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%ar"
+30 minutes ago
+5 days ago
+5 days ago
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%cn"
+sushma1006
+sushma1006
+sushma1006
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%ce"
+sushma@thelaunchclub.in
+sushma@thelaunchclub.in
+sushma@thelaunchclub.in
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%cd"
+Mon Jan 9 17:00:47 2023 +0530
+Wed Jan 4 18:12:15 2023 +0530
+Wed Jan 4 18:04:34 2023 +0530
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%cr"
+30 minutes ago
+5 days ago
+5 days ago
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty="%s"
+1 file deleted
+hai
+initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty=format:"%h %s --graph"
+68ed1a5 1 file deleted --graph
+6b9587f hai --graph
+60609ab initial commit --graph
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --shortstat
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+ 3 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+
+ 2 files changed, 2 insertions(+)
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --stat
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+ helo.txt     | 1 +
+ textfile     | 1 -
+ textfile.txt | 1 +
+ 3 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+ textfile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+
+ textfile    | 1 +
+ textfile.js | 1 +
+ 2 files changed, 2 insertions(+)
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --name-only
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+helo.txt
+textfile
+textfile.txt
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+textfile
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+
+textfile
+textfile.js
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --name-status
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+A       helo.txt
+D       textfile
+A       textfile.txt
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+M       textfile
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+
+A       textfile
+A       textfile.js
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --abbrev-commit
+commit 68ed1a5 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+commit 6b9587f
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+commit 60609ab
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --retlative-date
+fatal: unrecognized argument: --retlative-date
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --relative-date
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   36 minutes ago
+
+    1 file deleted
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   5 days ago
+
+    hai
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   5 days ago
+
+    initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --graph
+* commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+| Author: sushma1006 <sushma@thelaunchclub.in>
+| Date:   Mon Jan 9 17:00:47 2023 +0530
+| 
+|     1 file deleted
+| 
+* commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+| Author: sushma1006 <sushma@thelaunchclub.in>
+| Date:   Wed Jan 4 18:12:15 2023 +0530
+| 
+|     hai
+| 
+* commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+  Author: sushma1006 <sushma@thelaunchclub.in>
+  Date:   Wed Jan 4 18:04:34 2023 +0530
+  
+      initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --pretty
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --oneline
+68ed1a5 (HEAD -> master) 1 file deleted
+6b9587f hai
+60609ab initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --since=2.weeks
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --since=2 minutes ago
+fatal: ambiguous argument 'minutes': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --since=2 minutes ago"
+> 
+> 
+> ^C
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --since=2 minutes ago"
+> ^C
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --since="2 minutes ago"
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --since="1 day ago"
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log --until="1 day ago"
+commit 6b9587f9040cb5c1ebc8d2e4a44555d8f18bfa81
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:12:15 2023 +0530
+
+    hai
+
+commit 60609ab33d3888e0f162ac1931937a18fa7e7cc7
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Wed Jan 4 18:04:34 2023 +0530
+
+    initial commit
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ 
+
+
