@@ -4,10 +4,7 @@ Text file
 
 Text file
 
-Text file
-
-
-Text file
+Text 
 
 Text file
 Text file
