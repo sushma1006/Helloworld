@@ -11,7 +11,7 @@ sushma@sushma-Vostro-14-5410:~/Desktop/git$ mv git gitsampletest
 mv: cannot stat 'git': No such file or directory
 sushma@sushma-Vostro-14-5410:~/Desktop/git$ cd ..
 sushma@sushma-Vostro-14-5410:~/Desktop$ mv git gitsampletest
-sushma@sushma-Vostro-14-5410:~/Desktop$ cd gitsampletest
+sushma@sushma-Vostro-14-5410:~/Desktop$ cd gitsampletest   helooo haiiii
 sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git status
 On branch master
 Changes to be committed:
