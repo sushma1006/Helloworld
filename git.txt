@@ -144,6 +144,27 @@ Author: sushma1006 <sushma@thelaunchclub.in>
 Date:   Mon Jan 9 17:00:47 2023 +0530
 
     1 file deleted
+aii
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+aii
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
+aii
+sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1
+commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
+Author: sushma1006 <sushma@thelaunchclub.in>
+Date:   Mon Jan 9 17:00:47 2023 +0530
+
+    1 file deleted
 
 diff --git a/helo.txt b/helo.txt
 new file mode 100644
