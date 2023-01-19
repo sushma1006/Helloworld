@@ -3,9 +3,6 @@ sushma@sushma-Vostro-14-5410:~$ cd git
 bash: cd: git: No such file or directory
 sushma@sushma-Vostro-14-5410:~$ cd Desktop
 sushma@sushma-Vostro-14-5410:~/Desktop$ cd git
-
-
-sushma@sushma-Vostro-14-5410:~/Desktop$ cd git
 sushma@sushma-Vostro-14-5410:~/Desktop/git$ git mv git from gits
 fatal: destination 'gits' is not a directory
 sushma@sushma-Vostro-14-5410:~/Desktop/git$ git mv git gits
@@ -14,7 +11,7 @@ sushma@sushma-Vostro-14-5410:~/Desktop/git$ mv git gitsampletest
 mv: cannot stat 'git': No such file or directory
 sushma@sushma-Vostro-14-5410:~/Desktop/git$ cd ..
 sushma@sushma-Vostro-14-5410:~/Desktop$ mv git gitsampletest
-sushma@sushma-Vostro-14-5410:~/Desktop$ cd gitsampletest
+sushma@sushma-Vostro-14-5410:~/Desktop$ cd gitsampletest   helooo haiiii
 sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git status
 On branch master
 Changes to be committed:
@@ -138,27 +135,6 @@ index 0000000..516ce1b
 +++ b/textfile.js
 @@ -0,0 +1 @@
 +haii
-sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1
-commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
-Author: sushma1006 <sushma@thelaunchclub.in>
-Date:   Mon Jan 9 17:00:47 2023 +0530
-
-    1 file deleted
-aii
-sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1
-commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
-Author: sushma1006 <sushma@thelaunchclub.in>
-Date:   Mon Jan 9 17:00:47 2023 +0530
-
-    1 file deleted
-aii
-sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1
-commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
-Author: sushma1006 <sushma@thelaunchclub.in>
-Date:   Mon Jan 9 17:00:47 2023 +0530
-
-    1 file deleted
-aii
 sushma@sushma-Vostro-14-5410:~/Desktop/gitsampletest$ git log -p -1
 commit 68ed1a537e1a4fd6ee5f37959963ca01e605b976 (HEAD -> master)
 Author: sushma1006 <sushma@thelaunchclub.in>
